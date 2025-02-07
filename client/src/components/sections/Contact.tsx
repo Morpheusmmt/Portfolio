@@ -14,6 +14,8 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
+import { Github, Linkedin, Mail, Phone, MessageSquare } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -22,6 +24,39 @@ const formSchema = z.object({
 });
 
 type FormValues = z.infer<typeof formSchema>;
+
+const contactMethods = [
+  {
+    icon: <Github className="h-6 w-6" />,
+    label: "GitHub",
+    href: "https://github.com/yourusername",
+    username: "@yourusername",
+  },
+  {
+    icon: <Linkedin className="h-6 w-6" />,
+    label: "LinkedIn",
+    href: "https://linkedin.com/in/yourusername",
+    username: "Your Name",
+  },
+  {
+    icon: <Mail className="h-6 w-6" />,
+    label: "Email",
+    href: "mailto:your.email@example.com",
+    username: "your.email@example.com",
+  },
+  {
+    icon: <Phone className="h-6 w-6" />,
+    label: "Phone",
+    href: "tel:+1234567890",
+    username: "+1 (234) 567-890",
+  },
+  {
+    icon: <MessageSquare className="h-6 w-6" />,
+    label: "WhatsApp",
+    href: "https://wa.me/1234567890",
+    username: "+1 (234) 567-890",
+  },
+];
 
 export default function Contact() {
   const { toast } = useToast();
@@ -35,13 +70,29 @@ export default function Contact() {
   });
 
   async function onSubmit(data: FormValues) {
-    // Here you would typically send the data to your backend
-    console.log(data);
-    toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. I'll get back to you soon.",
-    });
-    form.reset();
+    try {
+      const response = await fetch('/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) throw new Error('Failed to send message');
+
+      toast({
+        title: "Message sent!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+      form.reset();
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
@@ -56,9 +107,38 @@ export default function Contact() {
         >
           <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or just want to say hello? Feel free to reach out!
+            Have a project in mind or just want to say hello? Feel free to reach out through any of these channels!
           </p>
         </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4 mb-12">
+          {contactMethods.map((method) => (
+            <motion.div
+              key={method.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <a
+                href={method.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Card className="h-full hover:shadow-lg transition-shadow">
+                  <CardContent className="p-6 text-center">
+                    <div className="mb-4 flex justify-center text-primary">
+                      {method.icon}
+                    </div>
+                    <h3 className="font-semibold mb-2">{method.label}</h3>
+                    <p className="text-sm text-muted-foreground">{method.username}</p>
+                  </CardContent>
+                </Card>
+              </a>
+            </motion.div>
+          ))}
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
