@@ -1,7 +1,15 @@
+import express from "express";
+import { registerRoutes } from "./routes";
+import { setupVite } from "./vite";
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { messageSchema, projectSchema, skillSchema } from "@shared/schema";
+
+const app = express();
+app.use(express.json());
+
+const port = process.env.PORT || 5000;
 
 export function registerRoutes(app: Express): Server {
   // Endpoint para obter todos os projetos
@@ -41,3 +49,17 @@ export function registerRoutes(app: Express): Server {
   const httpServer = createServer(app);
   return httpServer;
 }
+
+async function main() {
+  const server = registerRoutes(app);
+
+  if (process.env.NODE_ENV !== "production") {
+    await setupVite(app, server);
+  }
+
+  server.listen(port, "0.0.0.0", () => {
+    console.log(`Server is running on http://0.0.0.0:${port}`);
+  });
+}
+
+main().catch(console.error);
