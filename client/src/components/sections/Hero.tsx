@@ -14,10 +14,10 @@ export default function Hero() {
             className="flex-1"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Hi, I'm <span className="text-primary">Your Name</span>
+              Olá, eu sou <span className="text-primary">Maida Martins</span>
             </h1>
             <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-              A passionate web developer crafting beautiful and functional digital experiences
+              Desenvolvedora apaixonada por tecnologia, criando soluções digitais eficientes e impactantes.
             </p>
             <div className="flex gap-4">
               <Button
@@ -25,7 +25,7 @@ export default function Hero() {
                 className="bg-primary hover:bg-primary/90 text-white"
                 onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
               >
-                Get in Touch
+                Entre em contato
               </Button>
               <Button
                 size="lg"
@@ -33,7 +33,7 @@ export default function Hero() {
                 className="border-primary text-primary hover:bg-primary hover:text-background"
                 onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
               >
-                View Projects
+                Meus projetos
               </Button>
             </div>
           </motion.div>
@@ -44,7 +44,7 @@ export default function Hero() {
             className="flex-1"
           >
             <img
-              src="https://images.unsplash.com/photo-1507679799987-c73779587ccf"
+              src="https://i.imgur.com/mzCcjvo.jpeg"
               alt="Profile"
               className="rounded-full w-64 h-64 md:w-96 md:h-96 object-cover mx-auto border-4 border-primary"
             />

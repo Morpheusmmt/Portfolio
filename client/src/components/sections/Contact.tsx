@@ -17,48 +17,50 @@ import { useToast } from "@/hooks/use-toast";
 import { Github, Linkedin, Mail, Phone, MessageSquare } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
+// Esquema de validação do formulário usando zod
 const formSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  name: z.string().min(2, "O nome deve ter pelo menos 2 caracteres"),
+  email: z.string().email("Endereço de email inválido"),
+  message: z.string().min(10, "A mensagem deve ter pelo menos 10 caracteres"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
+// Métodos de contato com ícones e informações
 const contactMethods = [
   {
     icon: <Github className="h-6 w-6" />,
     label: "GitHub",
-    href: "https://github.com/yourusername",
-    username: "@yourusername",
+    href: "https://github.com/Morpheusmmt",
+    username: "@morpheusmmt",
   },
   {
     icon: <Linkedin className="h-6 w-6" />,
     label: "LinkedIn",
-    href: "https://linkedin.com/in/yourusername",
-    username: "Your Name",
+    href: "//www.linkedin.com/in/maida-martins23",
+    username: "Maida Martins",
   },
   {
     icon: <Mail className="h-6 w-6" />,
     label: "Email",
-    href: "mailto:your.email@example.com",
-    username: "your.email@example.com",
+    href: "mailto:1maida.martins@gmail.com",
+    username: "1maida.martins@gmail.com",
   },
   {
     icon: <Phone className="h-6 w-6" />,
-    label: "Phone",
-    href: "tel:+1234567890",
-    username: "+1 (234) 567-890",
+    label: "Telefone",
+    href: "tel:+55 85 98960-9615",
+    username: "+55 (85) 98960-9615",
   },
   {
     icon: <MessageSquare className="h-6 w-6" />,
     label: "WhatsApp",
-    href: "https://wa.me/1234567890",
-    username: "+1 (234) 567-890",
+    href: "https://w.app/maidamartins",
+    username: "+55 85981896407",
   },
 ];
 
-export default function Contact() {
+export default function Contato() {
   const { toast } = useToast();
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -71,25 +73,25 @@ export default function Contact() {
 
   async function onSubmit(data: FormValues) {
     try {
-      // Simulating a delay for better user experience
+      // Simulando um atraso para melhorar a experiência do usuário
       await new Promise(resolve => setTimeout(resolve, 1000));
 
       toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
+        title: "Mensagem enviada!",
+        description: "Obrigado pelo seu contato. Responderemos em breve.",
       });
       form.reset();
     } catch (error) {
       toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
+        title: "Erro",
+        description: "Falha ao enviar mensagem. Por favor, tente novamente.",
+        variant: "destrutivo",
       });
     }
   }
 
   return (
-    <section id="contact" className="py-20 bg-muted/50">
+    <section id="contato" className="py-20 bg-muted/50">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -98,9 +100,9 @@ export default function Contact() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Get in Touch</h2>
+          <h2 className="text-3xl font-bold mb-4">Entre em Contato</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Have a project in mind or just want to say hello? Feel free to reach out through any of these channels!
+            Tem um projeto em mente ou só quer dizer oi? Fique à vontade para entrar em contato por qualquer um desses canais!
           </p>
         </motion.div>
 
@@ -147,9 +149,9 @@ export default function Contact() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Name</FormLabel>
+                    <FormLabel>Nome</FormLabel>
                     <FormControl>
-                      <Input placeholder="Your name" {...field} />
+                      <Input placeholder="Seu nome" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -162,7 +164,7 @@ export default function Contact() {
                   <FormItem>
                     <FormLabel>Email</FormLabel>
                     <FormControl>
-                      <Input placeholder="your.email@example.com" {...field} />
+                      <Input placeholder="seu.email@exemplo.com" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -173,10 +175,10 @@ export default function Contact() {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel>Mensagem</FormLabel>
                     <FormControl>
                       <Textarea
-                        placeholder="Tell me about your project..."
+                        placeholder="Conte-me sobre seu projeto..."
                         className="min-h-[120px]"
                         {...field}
                       />
@@ -190,7 +192,7 @@ export default function Contact() {
                 className="w-full bg-primary hover:bg-primary/90"
                 disabled={form.formState.isSubmitting}
               >
-                {form.formState.isSubmitting ? "Sending..." : "Send Message"}
+                {form.formState.isSubmitting ? "Enviando..." : "Enviar Mensagem"}
               </Button>
             </form>
           </Form>

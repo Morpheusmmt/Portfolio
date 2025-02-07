@@ -45,8 +45,7 @@ export default function About() {
         >
           <h2 className="text-3xl font-bold mb-4">Sobre Mim</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Sou uma desenvolvedora apaixonada por tecnologia, sempre buscando criar soluções eficientes e inovadoras. 
-            Tenho experiência no desenvolvimento de aplicações modernas, do frontend ao backend, garantindo performance e uma ótima experiência de usuário.
+            Sou uma desenvolvedora focada em criar soluções práticas e funcionais. Tenho experiência em desenvolver aplicações completas, garantindo uma boa performance e experiência para o usuário.
           </p>
         </motion.div>
 

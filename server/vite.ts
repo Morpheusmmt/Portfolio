@@ -9,8 +9,10 @@ import { type Server } from "http";
 import viteConfig from "../vite.config";
 import { nanoid } from "nanoid";
 
+// Criando um logger para o Vite
 const viteLogger = createLogger();
 
+// Função para logar mensagens no console
 export function log(message: string, source = "express") {
   const formattedTime = new Date().toLocaleTimeString("en-US", {
     hour: "numeric",
@@ -22,28 +24,32 @@ export function log(message: string, source = "express") {
   console.log(`${formattedTime} [${source}] ${message}`);
 }
 
+// Função para configurar o Vite no servidor Express
 export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
-    middlewareMode: true,
-    hmr: { server },
-    allowedHosts: true,
+    middlewareMode: true,  // Habilita o modo middleware
+    hmr: { server }, // Habilita HMR (Hot Module Replacement) para o Vite
+    allowedHosts: true,  // Permite hosts específicos
   };
 
+  // Cria e configura o servidor Vite
   const vite = await createViteServer({
     ...viteConfig,
-    configFile: false,
+    configFile: false,  // Desabilita o arquivo de configuração do Vite
     customLogger: {
       ...viteLogger,
       error: (msg, options) => {
         viteLogger.error(msg, options);
-        process.exit(1);
+        process.exit(1);  // Se ocorrer erro, o processo é encerrado
       },
     },
     server: serverOptions,
-    appType: "custom",
+    appType: "custom",  // Define o tipo de aplicação como customizado
   });
 
-  app.use(vite.middlewares);
+  app.use(vite.middlewares); // Usa middlewares do Vite no Express
+
+  // Manipula requisições para todas as URLs
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
 
@@ -55,33 +61,36 @@ export async function setupVite(app: Express, server: Server) {
         "index.html",
       );
 
-      // always reload the index.html file from disk incase it changes
+      // Sempre recarrega o arquivo index.html do disco para garantir que esteja atualizado
       let template = await fs.promises.readFile(clientTemplate, "utf-8");
       template = template.replace(
         `src="/src/main.tsx"`,
-        `src="/src/main.tsx?v=${nanoid()}"`,
+        `src="/src/main.tsx?v=${nanoid()}"`, // Adiciona um hash para evitar cache
       );
       const page = await vite.transformIndexHtml(url, template);
-      res.status(200).set({ "Content-Type": "text/html" }).end(page);
+      res.status(200).set({ "Content-Type": "text/html" }).end(page);  // Envia a página gerada para o cliente
     } catch (e) {
-      vite.ssrFixStacktrace(e as Error);
-      next(e);
+      vite.ssrFixStacktrace(e as Error); // Corrige stacktrace de erros do SSR
+      next(e);  // Passa o erro para o próximo middleware
     }
   });
 }
 
+// Função para servir arquivos estáticos
 export function serveStatic(app: Express) {
   const distPath = path.resolve(__dirname, "public");
 
+  // Verifica se o diretório de build existe
   if (!fs.existsSync(distPath)) {
     throw new Error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`,
     );
   }
 
+  // Serve arquivos estáticos da pasta 'public'
   app.use(express.static(distPath));
 
-  // fall through to index.html if the file doesn't exist
+  // Se o arquivo não for encontrado, envia o index.html
   app.use("*", (_req, res) => {
     res.sendFile(path.resolve(distPath, "index.html"));
   });

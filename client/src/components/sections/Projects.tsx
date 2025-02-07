@@ -6,7 +6,7 @@ import { ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     title: "Project 1",
-    description: "A modern web application built with React and Node.js",
+    description: "Este projeto é uma aplicação web simples que simula o sorteio dos números da Mega-Sena, o popular jogo de loteria brasileiro. O usuário pode gerar números aleatórios para realizar apostas. A aplicação é construída com HTML, CSS e JavaScript.",
     image: "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8",
     github: "https://github.com",
     live: "https://example.com"
