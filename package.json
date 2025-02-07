@@ -47,6 +47,7 @@
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
     "drizzle-kit": "^0.30.4",
+    "drizzle-orm": "^0.39.2",
     "embla-carousel-react": "^8.3.0",
     "express": "^4.21.2",
     "express-session": "^1.18.1",
