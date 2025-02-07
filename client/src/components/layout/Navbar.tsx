@@ -94,7 +94,7 @@ export default function Navbar() {
             ))}
             {/* Botão do currículo para mobile */}
             <Button asChild variant="outline" className="w-full mt-2 border-primary text-primary hover:bg-primary hover:text-background">
-              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+              <a href="https://drive.google.com/file/d/1OE6UAee8JacqDB74mqRjpSO1ifC-kGyX/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">Currículo</a>
             </Button>
           </motion.div>
         )}

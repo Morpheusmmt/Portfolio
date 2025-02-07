@@ -5,46 +5,32 @@ import { ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
-    title: "Project 1",
-    description: "Este projeto é uma aplicação web simples que simula o sorteio dos números da Mega-Sena, o popular jogo de loteria brasileiro. O usuário pode gerar números aleatórios para realizar apostas. A aplicação é construída com HTML, CSS e JavaScript.",
-    image: "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8",
-    github: "https://github.com",
-    live: "https://example.com"
+    title: "Mega-Sena",
+    description: "Aplicação web simples que simula o sorteio da Mega-Sena, permitindo ao usuário gerar números aleatórios para apostas. Desenvolvida com HTML, CSS e JavaScript.",
+    image: "https://images.pexels.com/photos/4249023/pexels-photo-4249023.jpeg?",
+    github: "https://github.com/Morpheusmmt/Mega-Sena-",
+    live: "https://morpheusmmt.github.io/Mega-Sena-/"
   },
   {
-    title: "Project 2",
-    description: "An e-commerce platform with seamless payment integration",
-    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
-    github: "https://github.com",
-    live: "https://example.com"
+    title: "Previsão Meteorológica",
+    description: "Consome dados de API externa para exibir temperatura, umidade e condições climáticas em tempo real. Construído com HTML, CSS e JavaScript.",
+    image: "https://images.pexels.com/photos/29780143/pexels-photo-29780143.jpeg",
+    github: "https://github.com/Morpheusmmt/clima",
+    live: "https://morpheusmmt.github.io/clima/"
   },
   {
-    title: "Project 3",
-    description: "A real-time chat application using WebSocket",
-    image: "https://images.unsplash.com/photo-1510759395231-72b17d622279",
-    github: "https://github.com",
-    live: "https://example.com"
+    title: "Calculadora IMC",
+    description: "Este projeto é uma aplicação web que calcula o Índice de Massa Corporal (IMC), utilizando manipulação do DOM e validação de dados com JavaScript. A aplicação possui um design responsivo, demonstrando habilidades em front-end.",
+    image: "https://images.pexels.com/photos/15319043/pexels-photo-15319043/free-photo-of-cuidados-de-saude-assistencia-medica-nutricionista-dietista.jpeg",
+    github: "https://github.com/Morpheusmmt/calc-IMC",
+    live: "https://morpheusmmt.github.io/calc-IMC/"
   },
   {
-    title: "Project 4",
-    description: "A responsive dashboard with data visualization",
-    image: "https://images.unsplash.com/photo-1660592868727-858d28c3ba52",
-    github: "https://github.com",
-    live: "https://example.com"
-  },
-  {
-    title: "Project 5",
-    description: "An AI-powered content management system",
-    image: "https://images.unsplash.com/photo-1685478237595-f452cb125f27",
-    github: "https://github.com",
-    live: "https://example.com"
-  },
-  {
-    title: "Project 6",
-    description: "A blockchain-based voting system",
-    image: "https://images.unsplash.com/photo-1679409759768-bea306439ab8",
-    github: "https://github.com",
-    live: "https://example.com"
+    title: "Pomodoro Timer",
+    description: "Este aplicativo Pomodoro foi desenvolvido com React, TypeScript e Vite. Ele permite personalizar o tempo de trabalho, intervalos e ciclos, utilizando a técnica Pomodoro.",
+    image: "https://images.pexels.com/photos/1179490/pexels-photo-1179490.jpeg",
+    github: "https://github.com/Morpheusmmt/pomodoro",
+    live: "pomodoro-one-mu.vercel.app"
   },
 ];
 
@@ -59,9 +45,9 @@ export default function Projects() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">My Projects</h2>
+          <h2 className="text-3xl font-bold mb-4">Meus Projetos</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and expertise
+            Veja alguns dos meus projetos que mostram minhas habilidades e experiência.
           </p>
         </motion.div>
 
@@ -94,7 +80,7 @@ export default function Projects() {
                     >
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
                         <Github size={16} />
-                        Code
+                        Código
                       </a>
                     </Button>
                     <Button
@@ -104,7 +90,7 @@ export default function Projects() {
                     >
                       <a href={project.live} target="_blank" rel="noopener noreferrer">
                         <ExternalLink size={16} />
-                        Live Demo
+                        Visualização do projeto
                       </a>
                     </Button>
                   </div>

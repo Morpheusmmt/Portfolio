@@ -24,11 +24,6 @@ const skills = [
     title: "UI/UX Design",
     description: "Criação de interfaces modernas e intuitivas com foco em experiência do usuário.",
   },
-  {
-    icon: <TrendingUp className="h-8 w-8 text-primary" />,
-    title: "Otimização e Performance",
-    description: "Melhoria no desempenho de aplicações, garantindo carregamento rápido e experiência fluida.",
-  },
 ];
 
 export default function About() {
