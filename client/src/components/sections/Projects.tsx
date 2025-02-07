@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ExternalLink, Github } from "lucide-react";
-import DemoViewer from "../project-demo/DemoViewer";
 
 const projects = [
   {
@@ -11,7 +10,6 @@ const projects = [
     image: "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8",
     github: "https://github.com",
     live: "https://example.com",
-    demoUrl: "https://example.com/demo",
   },
   {
     title: "Project 2",
@@ -19,7 +17,6 @@ const projects = [
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
     github: "https://github.com",
     live: "https://example.com",
-    demoUrl: "https://example.com/demo",
   },
   {
     title: "Project 3",
@@ -27,7 +24,6 @@ const projects = [
     image: "https://images.unsplash.com/photo-1510759395231-72b17d622279",
     github: "https://github.com",
     live: "https://example.com",
-    demoUrl: "https://example.com/demo",
   },
   {
     title: "Project 4",
@@ -35,7 +31,6 @@ const projects = [
     image: "https://images.unsplash.com/photo-1660592868727-858d28c3ba52",
     github: "https://github.com",
     live: "https://example.com",
-    demoUrl: "https://example.com/demo",
   },
   {
     title: "Project 5",
@@ -43,7 +38,6 @@ const projects = [
     image: "https://images.unsplash.com/photo-1685478237595-f452cb125f27",
     github: "https://github.com",
     live: "https://example.com",
-    demoUrl: "https://example.com/demo",
   },
   {
     title: "Project 6",
@@ -51,7 +45,6 @@ const projects = [
     image: "https://images.unsplash.com/photo-1679409759768-bea306439ab8",
     github: "https://github.com",
     live: "https://example.com",
-    demoUrl: "https://example.com/demo",
   },
 ];
 
@@ -68,7 +61,7 @@ export default function Projects() {
         >
           <h2 className="text-3xl font-bold mb-4">My Projects</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Here are some of my recent projects that showcase my skills and expertise. Click on "Live Demo" to interact with the projects.
+            Here are some of my recent projects that showcase my skills and expertise
           </p>
         </motion.div>
 
@@ -104,7 +97,16 @@ export default function Projects() {
                         Code
                       </a>
                     </Button>
-                    <DemoViewer project={project} />
+                    <Button
+                      size="sm"
+                      className="flex items-center gap-2"
+                      asChild
+                    >
+                      <a href={project.live} target="_blank" rel="noopener noreferrer">
+                        <ExternalLink size={16} />
+                        Live Demo
+                      </a>
+                    </Button>
                   </div>
                 </CardContent>
               </Card>
