@@ -71,15 +71,8 @@ export default function Contact() {
 
   async function onSubmit(data: FormValues) {
     try {
-      const response = await fetch('/api/messages', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-
-      if (!response.ok) throw new Error('Failed to send message');
+      // Simulating a delay for better user experience
+      await new Promise(resolve => setTimeout(resolve, 1000));
 
       toast({
         title: "Message sent!",

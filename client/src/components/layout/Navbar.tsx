@@ -4,23 +4,32 @@ import { Menu, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
+// Itens do menu de navegação
 const navItems = [
-  { href: "#about", label: "About" },
-  { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "Sobre" },
+  { href: "#projects", label: "Projetos" },
+  { href: "#contact", label: "Contato" },
 ];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false); // Estado do menu mobile
+  const [isScrolled, setIsScrolled] = useState(false); // Estado para verificar rolagem da página
 
+  // Efeito para monitorar a rolagem e alterar o estilo do navbar
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      requestAnimationFrame(() => {
+        setIsScrolled(window.scrollY > 50);
+      });
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Impede a rolagem do fundo quando o menu mobile está aberto
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? "hidden" : "auto";
+  }, [isOpen]);
 
   return (
     <motion.nav
@@ -32,36 +41,40 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
+          {/* Nome do portfólio que leva à página inicial */}
           <Link href="/">
-            <a className="text-2xl font-bold text-primary">Portfolio</a>
+            <span className="text-2xl font-bold text-primary cursor-pointer">Portfolio</span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Menu para telas grandes */}
           <div className="hidden md:flex space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.href}
                 href={item.href}
                 className="text-foreground hover:text-primary transition-colors"
+                tabIndex={0}
               >
                 {item.label}
               </a>
             ))}
-            <Button variant="outline" className="border-primary text-primary hover:bg-primary hover:text-background">
-              Resume
+            {/* Botão do currículo */}
+            <Button asChild variant="outline" className="border-primary text-primary hover:bg-primary hover:text-background">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
             </Button>
           </div>
 
-          {/* Mobile Navigation Button */}
+          {/* Botão do menu mobile */}
           <button
             className="md:hidden text-foreground"
             onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
-        {/* Mobile Navigation Menu */}
+        {/* Menu para dispositivos móveis */}
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -74,12 +87,14 @@ export default function Navbar() {
                 href={item.href}
                 className="block py-2 text-foreground hover:text-primary transition-colors"
                 onClick={() => setIsOpen(false)}
+                tabIndex={0}
               >
                 {item.label}
               </a>
             ))}
-            <Button variant="outline" className="w-full mt-2 border-primary text-primary hover:bg-primary hover:text-background">
-              Resume
+            {/* Botão do currículo para mobile */}
+            <Button asChild variant="outline" className="w-full mt-2 border-primary text-primary hover:bg-primary hover:text-background">
+              <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
             </Button>
           </motion.div>
         )}

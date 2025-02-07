@@ -9,42 +9,42 @@ const projects = [
     description: "A modern web application built with React and Node.js",
     image: "https://images.unsplash.com/photo-1508873535684-277a3cbcc4e8",
     github: "https://github.com",
-    live: "https://example.com",
+    live: "https://example.com"
   },
   {
     title: "Project 2",
     description: "An e-commerce platform with seamless payment integration",
     image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40",
     github: "https://github.com",
-    live: "https://example.com",
+    live: "https://example.com"
   },
   {
     title: "Project 3",
     description: "A real-time chat application using WebSocket",
     image: "https://images.unsplash.com/photo-1510759395231-72b17d622279",
     github: "https://github.com",
-    live: "https://example.com",
+    live: "https://example.com"
   },
   {
     title: "Project 4",
     description: "A responsive dashboard with data visualization",
     image: "https://images.unsplash.com/photo-1660592868727-858d28c3ba52",
     github: "https://github.com",
-    live: "https://example.com",
+    live: "https://example.com"
   },
   {
     title: "Project 5",
     description: "An AI-powered content management system",
     image: "https://images.unsplash.com/photo-1685478237595-f452cb125f27",
     github: "https://github.com",
-    live: "https://example.com",
+    live: "https://example.com"
   },
   {
     title: "Project 6",
     description: "A blockchain-based voting system",
     image: "https://images.unsplash.com/photo-1679409759768-bea306439ab8",
     github: "https://github.com",
-    live: "https://example.com",
+    live: "https://example.com"
   },
 ];
 
