@@ -1,7 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { insertMessageSchema, insertProjectSchema, insertSkillSchema } from "@shared/schema";
+import { messageSchema, projectSchema, skillSchema } from "@shared/schema";
 
 export function registerRoutes(app: Express): Server {
   // Endpoint para obter todos os projetos
@@ -29,7 +29,7 @@ export function registerRoutes(app: Express): Server {
   app.post("/api/messages", async (req, res) => {
     try {
       // Valida os dados da mensagem usando o schema
-      const messageData = insertMessageSchema.parse(req.body);
+      const messageData = messageSchema.parse(req.body);
       const message = await storage.createMessage(messageData);
       res.status(201).json(message); // Retorna status 201 indicando que a mensagem foi criada com sucesso
     } catch (error) {
