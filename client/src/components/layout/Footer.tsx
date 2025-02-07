@@ -1,4 +1,4 @@
-import { SiGithub, SiLinkedin, SiX } from "react-icons/si";
+import { SiGithub, SiLinkedin } from "react-icons/si";
 
 export default function Footer() {
   return (
@@ -24,14 +24,6 @@ export default function Footer() {
               className="text-muted-foreground hover:text-primary transition-colors"
             >
               <SiLinkedin size={24} />
-            </a>
-            <a
-              href="https://x.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              <SiX size={24} />
             </a>
           </div>
         </div>
