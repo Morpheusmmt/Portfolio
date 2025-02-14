@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"; // Biblioteca para animações
-import { Card, CardContent } from "@/components/ui/card"; // Componentes de UI
+import { Card, CardContent } from "../../components/ui/card"; // Componentes de UI
 import { Code2, Database, Palette, Server, TrendingUp } from "lucide-react"; // Ícones
 
 // Lista de habilidades com ícones, títulos e descrições
