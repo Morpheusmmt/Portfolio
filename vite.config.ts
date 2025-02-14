@@ -10,6 +10,7 @@ const __dirname = dirname(__filename);
 
 export default defineConfig({
   base: '/',
+  root: path.resolve(__dirname, 'client'), 
   plugins: [
     react(),
     themePlugin(),
