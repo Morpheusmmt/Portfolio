@@ -9,23 +9,20 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
-  base: "./", 
-
+  base: '/',
   plugins: [
     react(),
     themePlugin(),
     process.env.NODE_ENV === "development" && runtimeErrorOverlay(),
   ].filter(Boolean),
-
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
       "@shared": path.resolve(__dirname, "shared"),
     },
   },
-
   build: {
-    outDir: path.resolve(__dirname, "dist"), 
-    emptyOutDir: true, 
+    outDir: path.resolve(__dirname, "dist"),
+    emptyOutDir: true,
   },
 });
