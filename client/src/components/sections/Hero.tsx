@@ -4,7 +4,7 @@ import { ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative">
       <div className="container mx-auto px-4 py-20">
         <div className="flex flex-col md:flex-row items-center gap-12">
           <motion.div
