@@ -8,7 +8,7 @@ import { Button } from "../../components/ui/button";
 const navItems = [
   { href: "#about", label: "Sobre" },
   { href: "#projects", label: "Projetos" },
-  { href: "#contacts", label: "Contato" },
+  { href: "#contact", label: "Contato" },
 ];
 
 export default function Navbar() {
