@@ -16,7 +16,7 @@ import { Textarea } from "../../components/ui/textarea";
 import { useToast } from "../../hooks/use-toast";
 import { Github, Linkedin, Mail, Phone, MessageSquare } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/card";
-import { sendEmail } from "../../server/sendEmail"; // Importe a função para envio de email
+import { sendEmail } from "../../../../server/sendEmail";
 
 // Esquema de validação do formulário usando zod
 const formSchema = z.object({
