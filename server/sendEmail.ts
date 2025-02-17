@@ -8,15 +8,15 @@ export async function sendEmail(data: unknown) {
   try {
     // Envia o e-mail usando o EmailJS
     const response = await emailjs.send(
-      'service_1225xnp',  // Substitua pelo seu ID de serviço
-      'template_3xg9ele',  // Substitua pelo seu ID de template
+      'service_1225xnp', 
+      'template_3xg9ele',  
       {
         from_name: message.name,
         from_email: message.email,
         to_name: "1maida.martins@gmail.com",  // Para onde o e-mail será enviado
         message: message.message,
       },
-      'mkHC_yRfAtZiCGgXE'  // Substitua pela sua chave pública do EmailJS
+      'mkHC_yRfAtZiCGgXE'  
     );
 
     console.log("Email enviado com sucesso", response);
