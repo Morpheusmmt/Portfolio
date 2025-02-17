@@ -13,14 +13,14 @@ export async function sendEmail(data: unknown) {
 
   try {
     const response = await emailjs.send(
-      "service_mv0vzea", 
-      "template_38m6r1p", 
+      'service_mv0vzea', 
+      'template_38m6r1p', 
       {
         from_name: message.from_name,
         from_email: message.from_email,
         message: message.message,
       },
-      "mkHC_yRfAtZiCGgXE" 
+      'mkHC_yRfAtZiCGgXE' 
     );
 
     console.log("Email enviado com sucesso", response);
