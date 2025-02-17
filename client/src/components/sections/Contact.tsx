@@ -16,6 +16,7 @@ import { Textarea } from "../../components/ui/textarea";
 import { useToast } from "../../hooks/use-toast";
 import { Github, Linkedin, Mail, Phone, MessageSquare } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/card";
+import { sendEmail } from "../../server/sendEmail"; // Importe a função para envio de email
 
 // Esquema de validação do formulário usando zod
 const formSchema = z.object({
@@ -76,15 +77,24 @@ export default function Contato() {
       // Simulando um atraso para melhorar a experiência do usuário
       await new Promise(resolve => setTimeout(resolve, 1000));
 
+      // Enviar email utilizando o template ajustado
+      await sendEmail({
+        to_name: "Maida",
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message,
+      });
+
       toast({
         title: "Mensagem enviada!",
         description: "Obrigado pelo seu contato. Responderemos em breve.",
       });
+
       form.reset();
-    } catch (error) {
+    } catch (error: any) {
       toast({
         title: "Erro",
-        description: "Falha ao enviar mensagem. Por favor, tente novamente.",
+        description: `Falha ao enviar mensagem: ${error.message || "Por favor, tente novamente."}`,
         variant: "destrutivo",
       });
     }

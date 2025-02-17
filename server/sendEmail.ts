@@ -1,26 +1,23 @@
-import emailjs from "emailjs-com";
+import emailjs from "@emailjs/browser";
 import { messageSchema } from "../shared/schema";
 
 export async function sendEmail(data: unknown) {
-  // Valida os dados usando o schema existente
-  const message = messageSchema.parse(data);
+  const message = messageSchema.parse(data); 
 
   try {
-    // Envia o e-mail usando o EmailJS
     const response = await emailjs.send(
-      'service_1225xnp',  // Substitua pelo seu ID de serviço
-      'template_3xg9ele',  // Substitua pelo seu ID de template
+      'service_mv0vzea',   
+      'template_77ktgvl',  
       {
-        from_name: message.name,
-        from_email: message.email,
-        to_name: "1maida.martins@gmail.com",  // Para onde o e-mail será enviado
-        message: message.message,
+        from_name: message.name,              
+        from_email: message.email,            
+        message: message.message              
       },
-      'mkHC_yRfAtZiCGgXE'  // Substitua pela sua chave pública do EmailJS
+      'mkHC_yRfAtZiCGgXE'  
     );
 
     console.log("Email enviado com sucesso", response);
   } catch (error) {
-    console.error("Erro ao enviar e-mail:", error);
+    console.error("Erro ao enviar e-mail:", error?.response?.text || error);
   }
 }

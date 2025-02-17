@@ -6,8 +6,7 @@ import { messageSchema } from "../shared/schema";
 
 export function registerRoutes(app: Express): Server {
   const httpServer = createServer(app);
-
-  // Adiciona rota para envio de e-mails
+  
   app.post("/api/send-email", async (req, res) => {
     try {
       // Valida os dados recebidos
