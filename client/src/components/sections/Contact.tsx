@@ -27,7 +27,6 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-// Métodos de contato com ícones e informações
 const contactMethods = [
   {
     icon: <Github className="h-6 w-6" />,
