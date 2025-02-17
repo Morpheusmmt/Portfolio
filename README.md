@@ -4,8 +4,9 @@ Este é o meu portfólio pessoal, onde apresento meus projetos, habilidades e fo
 
 ## 🚀 Tecnologias Utilizadas  
 - *Framework:* React + Vite  
+- *Linguagem:* TypeScript  
 - *Estilização:* Tailwind CSS  
-- *Deploy:* Vercel  
+- *Deploy:* Vercel
 
 ## 🌐 Acesse o Projeto  
 🔗 [https://meu-portfolio-nine-virid.vercel.app](https://meu-portfolio-nine-virid.vercel.app)  
