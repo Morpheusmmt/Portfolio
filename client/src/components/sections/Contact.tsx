@@ -38,7 +38,7 @@ const contactMethods = [
   {
     icon: <Linkedin className="h-6 w-6" />,
     label: "LinkedIn",
-    href: "//www.linkedin.com/in/maida-martins23",
+    href: "https://www.linkedin.com/in/maida-martins23",
     username: "Maida Martins",
   },
   {
@@ -56,7 +56,7 @@ const contactMethods = [
   {
     icon: <MessageSquare className="h-6 w-6" />,
     label: "WhatsApp",
-    href: "https://w.app/maidamartins",
+    href: "https://wa.me/5585981896407",
     username: "+55 85981896407",
   },
 ];
@@ -74,10 +74,8 @@ export default function Contato() {
 
   async function onSubmit(data: FormValues) {
     try {
-      // Simulando um atraso para melhorar a experiência do usuário
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      // Enviar email utilizando o template ajustado
       await sendEmail({
         to_name: "Maida",
         from_name: data.name,
