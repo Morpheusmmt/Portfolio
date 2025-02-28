@@ -30,7 +30,7 @@ const projects = [
     description: "Este aplicativo Pomodoro foi desenvolvido com React, TypeScript e Vite. Ele permite personalizar o tempo de trabalho, intervalos e ciclos, utilizando a técnica Pomodoro.",
     image: "https://images.pexels.com/photos/1179490/pexels-photo-1179490.jpeg",
     github: "https://github.com/Morpheusmmt/pomodoro",
-    live: "pomodoro-one-mu.vercel.app"
+    live: "https://pomodoro-one-mu.vercel.app/"
   },
 ];
 
