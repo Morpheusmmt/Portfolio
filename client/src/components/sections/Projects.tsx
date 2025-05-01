@@ -32,6 +32,20 @@ const projects = [
     github: "https://github.com/Morpheusmmt/pomodoro",
     live: "https://pomodoro-one-mu.vercel.app/"
   },
+  {
+    title: "Calculadora de Hipoteca",
+    description: "Esta é uma solução para o desafio de Calculadora de Pagamento de Hipoteca do Frontend Mentor. O projeto consiste em uma calculadora interativa que permite aos usuários calcular pagamentos mensais de hipoteca com base nos valores, prazos e taxas de juros fornecidos.",
+    image: "https://images.pexels.com/photos/8962519/pexels-photo-8962519.jpeg",
+    github: "https://github.com/Morpheusmmt/hipoteca-calc",
+    live: "https://hipoteca-calc.vercel.app/"
+  },
+  {
+    title: "Todo List",
+    description: "Um gerenciador de tarefas simples em JavaScript puro, HTML e CSS.",
+    image: "https://images.pexels.com/photos/5124850/pexels-photo-5124850.jpeg",
+    github: "https://github.com/Morpheusmmt/todo-list",
+    live: "https://morpheusmmt.github.io/todo-list/"
+  },
 ];
 
 export default function Projects() {

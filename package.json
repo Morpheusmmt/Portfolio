@@ -47,6 +47,7 @@
     "clsx": "^2.1.1",
     "cmdk": "^1.0.0",
     "date-fns": "^3.6.0",
+    "dotenv": "^16.5.0",
     "drizzle-kit": "^0.30.4",
     "drizzle-orm": "^0.39.2",
     "emailjs-com": "^3.2.0",

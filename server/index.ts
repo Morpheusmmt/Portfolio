@@ -53,7 +53,7 @@ async function main() {
   const server = registerRoutes(app);
 
   if (process.env.NODE_ENV !== "production") {
-    await setupVite(app, server); // Se não for produção, configura o Vite
+    await setupVite(app, server); 
   }
 
   server.listen(PORT, "0.0.0.0", () => {
